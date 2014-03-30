@@ -1,0 +1,9 @@
+{% extend base.html %}
+{% block content %}
+	<div id ='List of Books'>
+		{% for books in book}
+		{{books}}
+		{% end for %}
+	</div>
+
+{% end block %}
