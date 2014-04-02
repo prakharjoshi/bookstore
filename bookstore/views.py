@@ -14,8 +14,8 @@ def bookshow(request):
 	#SSreturn render_to_response('frontpage.html',context_instance = RequestContext(request))
 
 def bookdetails(request , book_id):
-	authors = author.objects.get(book_id)
-	#authors = get_object_or_404(author , pk=book_id)
+	#authors = book.objects.get(author)
+	authors = get_object_or_404(author , pk=book_id)
 	#context = {'authors':authors, 'publishers':publishers}
 	return render(request,'bookstore/bookdetail.html/',{'authors':authors})
 
