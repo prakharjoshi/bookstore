@@ -1,9 +1,11 @@
 {% if books %}
-    <ul>
+	<h2> WELCOME TO BOOKSTORE </p>
+	<ul>
     {% for book in books %}
-        <li><a href="/bookstore/{{ book.id }}/">{{ book.name }}</a></li>
+        <li><a href="/{{ book.id }}/">{{ book.name }}</a></li>
     {% endfor %}
     </ul>
+    <a href="/contacts/"> SIGNUP </a>
 {% else %}
     <p>No book is available.</p>
 {% endif %}

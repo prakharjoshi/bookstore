@@ -1,5 +1,5 @@
 """
-Django settings for mysite project.
+Django settings for mysit project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'axjmn2p$@*8nijvntq%y-^j+!q^s189-#7k0%jxr2y-i863rh&'
+SECRET_KEY = '8)_wg34930za$(&8n2en_&kgy(ec*$frvr1@#z9bc6eb3u(+p7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -26,9 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-TEMPLATE_DIRS=(
-   os.path.join(BASE_DIR,'templates'),
-)
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -38,9 +36,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookstore',
-    
-    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,9 +47,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'mysite.urls'
+ROOT_URLCONF = 'mysit.urls'
 
-WSGI_APPLICATION = 'mysite.wsgi.application'
+WSGI_APPLICATION = 'mysit.wsgi.application'
 
 
 # Database
@@ -83,10 +78,5 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-STATIC_ROOT = ''
 
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
-
-

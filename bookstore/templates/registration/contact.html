@@ -1,0 +1,11 @@
+{% if success %}
+{{ success}}
+{% endif %}
+
+<div>
+	<form action="/contacts/" method = "POST">{% csrf_token %}
+		<input type="text" name="name" placeholder="NAME"/><br />
+		<textarea name="message"></textarea><br />
+		<input type="submit" value = "submit feedback"/>
+	</form>
+</div>
