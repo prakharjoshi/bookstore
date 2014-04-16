@@ -1,13 +1,31 @@
-{% if books %}
-	<h2> WELCOME TO BOOKSTORE </p>
-	<ul>
+{% load staticfiles %}
+<html>
+  <head>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+          rel="stylesheet" media="screen">
+  </head>
+
+  <body>
+    {% block content %}
+    <h2> WELCOME TO BOOKSTORE </p>
+      {% if error %}
+        <p style="color: red;">Please submit a search term.</p>
+      {% endif %}
+      <form action = "/search/" method = "get">
+        <input type = "text" name = q>
+        <input type = "submit" value = "search">
+      </form>
+
+      
+	 <ul>
     {% for book in books %}
-        <li><a href="/{{ book.id }}/">{{ book.name }}</a></li>
+        <li><a href="/bookshow/{{ book.id }}/">{{ book.name }}</a></li>
     {% endfor %}
-    </ul>
-    <a href="/contacts/"> SIGNUP </a>
-{% else %}
-    <p>No book is available.</p>
-{% endif %}
+   </ul>
+    {% endblock %}
+
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
 
 

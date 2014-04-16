@@ -1,7 +1,7 @@
 {% if authors %}
 <h1> {{book.name}} </h1>
 <ul>
-	 <li><p> Author's name is :<a href = "/{{ book.id }}/author.html">{{authors}}</a></p></li>
-	<li><p> Publisher's name is :<a href = "/{{ book.id }}/publisher.html">{{publishers.name}}</a></p></li>
+	 <li><p> Author's name is :<a href = "/bookshow/{{ book.id }}/author.html">{{authors}}</a></p></li>
+	<li><p> Publisher's name is :<a href = "/bookshow/{{ book.id }}/publisher.html">{{publishers.name}}</a></p></li>
 </ul>
 {% endif %}

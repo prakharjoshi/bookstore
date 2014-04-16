@@ -10,7 +10,7 @@ class publisheradmin(admin.ModelAdmin):
 	list_display = ('name','locality')
 
 class signupadmin(admin.ModelAdmin):
-	list_display = ('username','password')
+	list_display = ('username',)
 	search_fields = ['username']
 	
 admin.site.register(book,bookadmin)
