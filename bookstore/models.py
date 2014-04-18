@@ -38,8 +38,21 @@ class signup(models.Model):
 
 	def __unicode__ (self):
 		return self.username
-		
-
 	
+
+class sign(models.Model):
+	username = models.CharField(max_length = 30)
+
+	def __unicode__(self):
+		return self.username
+
+
+class User(models.Model):
+	username = models.CharField(max_length = 30)
+	password = models.CharField(max_length = 20)
+
+	def __unicode__(self):
+		return self.username
+
 
 

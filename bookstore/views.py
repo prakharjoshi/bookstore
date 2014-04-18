@@ -2,7 +2,7 @@ from django.shortcuts import *
 from django.template import RequestContext
 from django.core.mail import send_mail
 #from django import forms
-from bookstore.models import book, author, publisher,signup
+from bookstore.models import book, author, publisher,signup,sign,User
 #from django.shortcuts import get_object_or_404, render
 #from bookstore.forms import SignUpForm
 #from django.contrib.auth.models import User
@@ -28,15 +28,21 @@ def bookdetails(request , book_id):
 	#context = {'authors':authors, 'publishers':publishers}
 	return render(request,'bookstore/bookdetail.html/',{'authors':authors,'publishers':publishers})
 
-def sign(request):
+"""def sign(request):
 	if request.POST:
 		username = request.POST['username']
 		user = signup.objects.create(username = username)
-		return render(request,'bookstore/signup.html',{'username':username})
+		return render(request,'bookstore/logged_in.html',{'username':user})
+	return render(request,'bookstore/login.html')"""
+
+
+
+def signin(request):
+	if request.POST:
+		username = request.POST['username']
+		user = sign.objects.create(username = username)
+		return render(request,'bookstore/logged_in.html',{'username':user})
 	return render(request,'bookstore/login.html')
-
-
-
 
 
 
@@ -174,7 +180,7 @@ def search(request):
 	else:		
 		return render(request,'bookstore/search_form.html',{'error':error})
 
-def contact(request):
+"""def contact(request):
 	errors = []
 	if request.method == "POST":
 		if not request.POST.get('subject',''):
@@ -194,4 +200,26 @@ def contact(request):
 	return render(request,'bookstore/contact_form.html',{'errors':errors,
 					'subject':request.POST.get('subject',''),
 					'message':request.POST.get('message',''),
-					'email':request.POST.get('email','')})
+					'email':request.POST.get('email','')})"""
+
+
+def register(request):
+	#registered = False
+	error = []
+	if request.method == "POST":
+		username = request.POST.get('username')
+		password = request.POST.get('password')
+		username.save()
+		password.save()
+
+		User.objects.create(username = username, password = password)
+		#registered = True
+		
+	else:
+		error.append('All fields are required') 
+
+	return render(request,'bookstore/signup.html',{'error':error})
+
+
+
+

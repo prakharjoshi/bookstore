@@ -4,12 +4,11 @@ from bookstore import views
 
 urlpatterns = patterns(' ',
 	url(r'^$',views.home, name = 'home'),
-	url(r'^sign/$', views.signup,name='sign'),
+	url(r'^register/$', views.register,name='register'),
 	url(r'^search/$',views.search, name = 'search'),
 	url(r'^bookshow/$',views.bookshow,name='bookshow'),
 	url(r'^bookshow/(?P<book_id>\d+)/$',views.bookdetails, name='bookdetails'),
-	url(r'^contact/$',views.contact, name = 'contact')
-
+	#url(r'^register/$',views.login, name = 'register'),
 ) 
 
 

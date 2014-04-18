@@ -6,9 +6,9 @@
 
 
 
-    {% if errors %}
+    {% if error %}
         <ul>
-            {% for error in errors %}
+            {% for error in error %}
             <li>{{ error }}</li>
             {% endfor %}
         </ul>
@@ -16,10 +16,11 @@
 
 
 <div>
-	<form action="/sign/" method = "POST">
+	<form action="/register/" method = "POST">
         {% csrf_token %}
         
 		<input type="text" username="username" placeholder="USERNAME"/><br />
+        <input type="text" password="password" placeholder="password"/><br />
 		<input type="submit" value = "signup"/>
 	</form>
 </div>

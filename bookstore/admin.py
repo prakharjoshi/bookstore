@@ -1,5 +1,5 @@
 from django.contrib import admin
-from bookstore.models import book,author,publisher,signup
+from bookstore.models import book,author,publisher,signup,User 
 
 
 class bookadmin(admin.ModelAdmin):
@@ -17,4 +17,5 @@ admin.site.register(book,bookadmin)
 admin.site.register(author)
 admin.site.register(publisher,publisheradmin)
 admin.site.register(signup,signupadmin)
+admin.site.register(User)
 
