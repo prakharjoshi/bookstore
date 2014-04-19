@@ -19,8 +19,8 @@
 	<form action="/register/" method = "POST">
         {% csrf_token %}
         
-		<input type="text" username="username" placeholder="USERNAME"/><br />
-        <input type="text" password="password" placeholder="password"/><br />
+		<input type="text" name="username" placeholder="USERNAME"/><br />
+        <input type="text" name="password" placeholder="password"/><br />
 		<input type="submit" value = "signup"/>
 	</form>
 </div>

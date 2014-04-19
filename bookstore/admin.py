@@ -12,10 +12,13 @@ class publisheradmin(admin.ModelAdmin):
 class signupadmin(admin.ModelAdmin):
 	list_display = ('username',)
 	search_fields = ['username']
+
+class Useradmin(admin.ModelAdmin):
+	list_display = ('username',)
 	
 admin.site.register(book,bookadmin)
 admin.site.register(author)
 admin.site.register(publisher,publisheradmin)
 admin.site.register(signup,signupadmin)
-admin.site.register(User)
+admin.site.register(User,Useradmin)
 

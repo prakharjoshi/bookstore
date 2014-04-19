@@ -207,12 +207,13 @@ def register(request):
 	#registered = False
 	error = []
 	if request.method == "POST":
-		username = request.POST.get('username')
-		password = request.POST.get('password')
-		username.save()
-		password.save()
+		u = User(username=request.POST['username'],password=request.POST['password'])
+		
+	
 
-		User.objects.create(username = username, password = password)
+
+		#user.objects.create(username = user.username, password = user.password)
+		u.save()
 		#registered = True
 		
 	else:
