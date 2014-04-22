@@ -1,9 +1,6 @@
-<html>
+{% extends "base.html" %}
 
-
-						  <h2>WELCOME TO BOOKSTORE<h2>
-						<h3>LOGIN TO GET IN LIBRARAY<h3>
-
+{% block content %}
 
 
     {% if error %}
@@ -25,4 +22,4 @@
 	</form>
 </div>
 
-</html>
+{% endblock %}

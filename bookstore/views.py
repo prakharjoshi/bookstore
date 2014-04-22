@@ -13,6 +13,10 @@ from bookstore.models import book, author, publisher,signup,sign,User
 def home(request):
 	return render_to_response('bookstore/frontpage.html/',context_instance=RequestContext(request))
 
+def about(request):
+	return render_to_response('bookstore/about.html/',context_instance=RequestContext(request))
+
+
 def bookshow(request):
 	books = book.objects.all().order_by('name')
 	#context = {'books':books}
@@ -43,8 +47,6 @@ def signin(request):
 		user = sign.objects.create(username = username)
 		return render(request,'bookstore/logged_in.html',{'username':user})
 	return render(request,'bookstore/login.html')
-
-
 
 
 
@@ -214,6 +216,7 @@ def register(request):
 
 		#user.objects.create(username = user.username, password = user.password)
 		u.save()
+		return HttpResponseRedirect('bookshow/')
 		#registered = True
 		
 	else:

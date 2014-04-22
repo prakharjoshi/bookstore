@@ -1,8 +1,5 @@
-<html>
-<head>
-	<title> SEARCH </title>
-</head>
-
+{% extends base.html %}
+{% block content %}
 <body>
 	{% if error %}
         <p style="color: red;">Please submit a search term.</p>
@@ -12,4 +9,4 @@
 		<input type = "submit" value = "search">
 	</form>
 </body>
-</html>
+{% endblock %}
