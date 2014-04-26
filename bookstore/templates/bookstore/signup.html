@@ -1,25 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-
-    {% if error %}
-        <ul>
-            {% for error in error %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-
+<body>
 <div>
-	<form action="/register/" method = "POST">
+        <h2 class="form-signin-heading">Please sign in</h2>
+    <form action="/register/" method = "POST">
         {% csrf_token %}
         
-		<input type="text" name="username" placeholder="USERNAME"/><br />
+        <input type="text" name="username" placeholder="USERNAME"/><br />
         <input type="text" name="password" placeholder="password"/><br />
-		<input type="submit" value = "signup"/>
-	</form>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <input type="submit" value = "signup"/>
+    </form>
 </div>
+</body>
+
+
 
 {% endblock %}

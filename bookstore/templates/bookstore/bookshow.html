@@ -1,8 +1,10 @@
 
-<html>
+{% extends "base.html" %}
+
+{% block content %}
   
   <body>
-    {% block content %}
+    
     <h2> WELCOME TO BOOKSTORE </p>
       <p> Hello {{ user.username}} </p>
       {% if error %}
@@ -19,10 +21,10 @@
         <li><a href="/bookshow/{{ book.id }}/">{{ book.name }}</a></li>
     {% endfor %}
    </ul>
-    {% endblock %}
+    
 
     
   </body>
-</html>
+{% endblock %}
 
 

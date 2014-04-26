@@ -1,3 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
 <p>You searched for: <strong>{{ query }}</strong></p>
 
 {% if books %}
@@ -10,3 +17,14 @@
 	{% else %}
     	<p>No books matched your search criteria.</p>
 {% endif %}
+
+
+{% endblock %}
+
+
+
+
+
+
+
+

@@ -226,4 +226,12 @@ def register(request):
 
 
 
+def addbook(request):
+	if request.method == "POST":
+		b = book(name = request.POST['name'],author = request.POST['author'],publisher = request.POST['publisher'])
+		b.save()
+		return HttpResponseRedirect('bookshow/')
+
+
+
 
