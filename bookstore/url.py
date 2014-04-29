@@ -10,6 +10,7 @@ urlpatterns = patterns(' ',
 	url(r'^bookshow/$',views.bookshow,name='bookshow'),
 	url(r'^bookshow/(?P<book_id>\d+)/$',views.bookdetails, name='bookdetails'),
 	url(r'^register/bookshow/$',views.bookshow,name = 'bookshow'),
+	url(r'^addbook/$',views.addbook,name='addbook')
 	#url(r'^register/$',views.login, name = 'register'),
 ) 
 

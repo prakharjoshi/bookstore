@@ -227,10 +227,35 @@ def register(request):
 
 
 def addbook(request):
+	error = []
 	if request.method == "POST":
-		b = book(name = request.POST['name'],author = request.POST['author'],publisher = request.POST['publisher'])
+		b = book()
+		b.name = request.POST['bookname']
+		a = author()
+		a.first_name = request.POST['author']
+		a.save()
+		b.author = a
+		p = publisher()
+		p.name = request.POST['publisher']
+		p.save()
+		b.publisher = p
 		b.save()
-		return HttpResponseRedirect('bookshow/')
+
+		
+		#a = author.objects.create(author = author)
+		#a = author(name = request.POST['name'])
+		#a.save()
+		#c = publisher.objects.create(publisher = publisher)
+		#c = publisher(Name = request.POST['publisher'])
+		#c.save()
+		
+
+		
+
+		return HttpResponseRedirect('/')
+	else:
+		error.append('all fields are required')
+	return render(request,'bookstore/addbook.html',{'error':error})
 
 
 

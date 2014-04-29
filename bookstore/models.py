@@ -8,7 +8,8 @@ CHOICES = (
 class book(models.Model):
 	name = models.CharField(max_length = 50)
     	author = models.ForeignKey('author')
-	publisher = models.ForeignKey('publisher')  
+	publisher = models.ForeignKey('publisher')
+	
 
 	def __unicode__(self):
 		return self.name

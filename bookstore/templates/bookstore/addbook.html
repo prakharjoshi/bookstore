@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+<div>
+        <h2 class="form-signin-heading">ADD BOOKS</h2>
+    <form action="/addbook/" method = "POST">
+        {% csrf_token %}
+        
+        <input type="text" name="bookname" placeholder="NAME"/><br />
+        <input type="text" name="author" placeholder="Author's name"/><br />
+        <input type="text" name="publisher" placeholder="publisher's name"/><br />
+        
+       
+        <input type="submit" value = "ADD"/>
+    </form>
+</div>
+</body>
+
+{% endblock %}
