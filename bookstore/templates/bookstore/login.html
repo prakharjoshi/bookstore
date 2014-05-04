@@ -1,0 +1,7 @@
+<html>
+
+	<form action = '/signin' method = "POST">
+		{% csrf token %}
+	    <input type="text" username="username" placeholder="USERNAME"/><br />
+		<input type="submit" value = "signup"/>
+	</form>
