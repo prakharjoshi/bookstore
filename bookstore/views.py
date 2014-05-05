@@ -6,8 +6,10 @@ from bookstore.models import book, author, publisher
 #from django.shortcuts import get_object_or_404, render
 #from bookstore.forms import UserForm
 from django.contrib.auth.models import User
-#from django.contrib.auth import authenticate,login,logout
-#from django.contrib.auth.decorators import login_required,user_passes_test
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import auth
+from django.core.context_processors import csrf
+from django.contrib.auth.decorators import login_required,user_passes_test
 
 
 def home(request):
@@ -242,7 +244,7 @@ def register(request):
 	#return render(request,'bookstore/signup.html',{'error':error})
 
 
-
+#@login_required(login_url = 'accounts/login/')
 def addbook(request):
 	error = []
 	if request.method == "POST":
@@ -273,6 +275,40 @@ def addbook(request):
 	else:
 		error.append('all fields are required')
 	return render(request,'bookstore/addbook.html',{'error':error})
+
+
+"""def login(request):
+	c = {}
+	c.update(csrf(reqquest))
+	return render_to_response('sucessfully_login.html',c)"""
+
+def login(request):
+	error = []
+	if request.method == "POST":
+		username = request.POST['username']
+		password = request.POST['password']
+		user = auth.authenticate(username = username, password = password)
+		if user is not None:
+				auth.login(request,user)
+				return HttpResponseRedirect('/bookshow/')
+		else:
+			return HttpResponseRedirect('/invalid/')
+	else:
+		error.append("invalid information")
+	return render(request,'bookstore/login.html',{'error':error})
+
+
+"""def logged_in(request):
+	return render_to_response('/sucessful_login.html',{'first_name': request.user.username})"""
+
+def invalid_login(request):
+	return render_to_response('bookstore/invalid_login.html')
+
+def logout(request):
+	auth.logout(request)
+	return render_to_response('/logout.html/')
+
+
 
 
 

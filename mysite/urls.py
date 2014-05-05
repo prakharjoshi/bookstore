@@ -11,15 +11,15 @@ from django.contrib import auth
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	#url(r'','bookstore.views.home'),
+  #url(r'','bookstore.views.home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'',include('bookstore.url')),
     #url(r'^registration/',include('visitors.url')),
     #url(r'^contact/$', 'bookstore.views.url'),
-   	#contact(r'^accounts/login/$', 'django_test.views.login'),
-   	#url(r'^accounts/auth/$' ,  'django_test.views.auth_view')
-	#url(r'^accounts/logout/$', 'django_test.views.logout'),
-	#url(r'^accounts/logggedin/$', 'django_test.views.logggedin'),
-	#url(r'^accounts/invalid/$', 'django_test.views.invalid_login'),
+    #contact(r'^accounts/login/$', 'django_test.views.login'),
+    #url(r'^accounts/auth/$' ,  'django_test.views.auth_view')
+  #url(r'^accounts/logout/$', 'django_test.views.logout'),
+  #url(r'^accounts/logggedin/$', 'django_test.views.logggedin'),
+  #url(r'^accounts/invalid/$', 'django_test.views.invalid_login'),
 
 )

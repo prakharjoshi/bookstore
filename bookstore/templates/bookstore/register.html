@@ -7,11 +7,11 @@
     <form action="/register/" method = "POST">
         {% csrf_token %}
         
-        <input type="text" name="username" placeholder="USERNAME"/><br />
-        <input type="text" name="password" placeholder="password"/><br />
-        <input type="text" name="email" placeholder="email"/><br />
-        <input type="text" name="first_name" placeholder="first_name"/><br />
-        <input type="text" name="last_name" placeholder="last_name"/><br />
+        <input type="text" class = "form-control" name="username" placeholder="USERNAME"/><br />
+        <input type="password" class = "form-control" name="password" placeholder="password"/><br />
+        <input type="text" class = "form-control" name="email" placeholder="email"/><br />
+        <input type="text" class = "form-control" name="first_name" placeholder="first_name"/><br />
+        <input type="text" class = "form-control" name="last_name" placeholder="last_name"/><br />
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>

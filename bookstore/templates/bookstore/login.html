@@ -1,7 +1,17 @@
-<html>
+{% extends 'base.html' %}
 
-	<form action = '/signin' method = "POST">
-		{% csrf token %}
-	    <input type="text" username="username" placeholder="USERNAME"/><br />
-		<input type="submit" value = "signup"/>
+{% block content %}
+
+	{% if form.errors %}
+		<p>{{error}}</p>
+	{% endif %}
+
+	<form method="POST" action="/login/">
+	{% csrf_token %}
+	<input type="text" name="username" placeholder="USERNAME"/><br />
+	<input type="password" name="password" placeholder="password"/><br />
+	<input type="submit" value="login" />
+	<input type="hidden" name="next" value="/bookshow/" />
 	</form>
+
+{% endblock %}
