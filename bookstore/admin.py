@@ -1,5 +1,5 @@
 from django.contrib import admin
-from bookstore.models import book,author,publisher,signup,User 
+from bookstore.models import book,author,publisher,User 
 
 
 class bookadmin(admin.ModelAdmin):
@@ -9,16 +9,16 @@ class bookadmin(admin.ModelAdmin):
 class publisheradmin(admin.ModelAdmin):
 	list_display = ('name','locality')
 
-class signupadmin(admin.ModelAdmin):
+"""class signupadmin(admin.ModelAdmin):
 	list_display = ('username',)
 	search_fields = ['username']
 
 class Useradmin(admin.ModelAdmin):
-	list_display = ('username',)
+	list_display = ('username',)"""
 	
 admin.site.register(book,bookadmin)
 admin.site.register(author)
 admin.site.register(publisher,publisheradmin)
-admin.site.register(signup,signupadmin)
-admin.site.register(User,Useradmin)
+#admin.site.register(signup,signupadmin)
+#admin.site.register(User,Useradmin)
 

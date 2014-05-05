@@ -1,8 +1,9 @@
-from django.db import models
-from django.forms import ModelForm
+#from django.db import models
+#from django.forms import ModelForm
 from django import forms
 #from forms import SignUp
-from bookstore.models import signup
+from bookstore.models import User
+from django.contrib.auth.models import User 
 
 TITLE_CHOICES = (
 		('MR' , 'Mr'),
@@ -32,9 +33,9 @@ class BookForm(ModelForm):
 		model = book
 		fields = ['name','authors']"""
 
-class SignUpForm(forms.Form):
+"""class SignUpForm(forms.Form):
 	username = forms.CharField(max_length=30)
-	password = forms.CharField(max_length=50)
+	password = forms.CharField(max_length=50)"""
 
 
 
@@ -42,3 +43,10 @@ class SignUpForm(forms.Form):
 """class Meta:
 		model = signup
 		fields = ['username','password']"""
+
+
+class UserForm(forms.ModelForm):
+	password = forms.CharField(widget = forms.PasswordInput())
+
+	class meta:
+		model = User

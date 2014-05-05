@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 CHOICES = (
 	('D', 'Domestic'),
@@ -32,7 +33,7 @@ class publisher(models.Model):
 		return self.name
 
 
-class signup(models.Model):
+"""class signup(models.Model):
 	username = models.CharField(max_length = 50)
 	
 
@@ -45,15 +46,13 @@ class sign(models.Model):
 	username = models.CharField(max_length = 30)
 
 	def __unicode__(self):
-		return self.username
+		return self.username"""
 
-
-class User(models.Model):
-	username = models.CharField(max_length = 30)
-	password = models.CharField(max_length = 20)
+"""class UserProfile(models.Model):
+	user = models.OneToOneField(User)
 
 	def __unicode__(self):
-		return self.username
+		return self.username"""
 
 
 

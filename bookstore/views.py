@@ -2,10 +2,10 @@ from django.shortcuts import *
 from django.template import RequestContext
 from django.core.mail import send_mail
 #from django import forms
-from bookstore.models import book, author, publisher,signup,sign,User
+from bookstore.models import book, author, publisher
 #from django.shortcuts import get_object_or_404, render
-#from bookstore.forms import SignUpForm
-#from django.contrib.auth.models import User
+#from bookstore.forms import UserForm
+from django.contrib.auth.models import User
 #from django.contrib.auth import authenticate,login,logout
 #from django.contrib.auth.decorators import login_required,user_passes_test
 
@@ -41,12 +41,12 @@ def bookdetails(request , book_id):
 
 
 
-def signin(request):
+"""def signin(request):
 	if request.POST:
 		username = request.POST['username']
 		user = sign.objects.create(username = username)
 		return render(request,'bookstore/logged_in.html',{'username':user})
-	return render(request,'bookstore/login.html')
+	return render(request,'bookstore/login.html')"""
 
 
 
@@ -209,20 +209,37 @@ def register(request):
 	#registered = False
 	error = []
 	if request.method == "POST":
-		u = User(username=request.POST['username'],password=request.POST['password'])
-		
-	
+		#u = User(username=request.POST['username'],password=request.POST['password'])
+		user_form = User.objects.create_user( username = request.POST['username'],password = request.POST['password'],
+		 					email = request.POST['email'],first_name = request.POST['first_name'],
+		 					last_name = request.POST['last_name'])
+
+		#if user_form.is_valid():
+		user_form.save()
+		return HttpResponseRedirect('bookshow/')
+			#user.set_password(user.password)
+			#user.save()
+	else:
+		error.append("invalid information")
+
+		#registered = True
+		#else:
+			#error.append("Invalid informations")
+	#else:
+		#user_form = User()
+
+	return render(request,'bookstore/register.html',{'error':error})
 
 
 		#user.objects.create(username = user.username, password = user.password)
-		u.save()
-		return HttpResponseRedirect('bookshow/')
+		#u.save()
+		#return HttpResponseRedirect('bookshow/')
 		#registered = True
 		
-	else:
-		error.append('All fields are required') 
+	#else:
+		#error.append('All fields are required') 
 
-	return render(request,'bookstore/signup.html',{'error':error})
+	#return render(request,'bookstore/signup.html',{'error':error})
 
 
 
