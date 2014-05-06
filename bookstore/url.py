@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, url
 from bookstore import views
+from django.conf import settings
+from django.conf.urls.static import static
 #from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = patterns(' ',
@@ -16,8 +18,7 @@ urlpatterns = patterns(' ',
 	url(r'^logout/$',views.logout,name='logout'),
 	url(r'^invalid/$',views.invalid_login,name='invalid_login'),
 	#url(r'^register/$',views.login, name = 'register'),
-) 
-
+)  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 

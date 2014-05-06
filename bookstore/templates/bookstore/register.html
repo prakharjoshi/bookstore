@@ -2,8 +2,19 @@
 
 {% block content %}
 <body>
+    <div class="navbar-collapse collapse">
+        <h2 class="form-signin-heading">LOGIN</h2>
+        <form method="POST" action="/login/">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="USERNAME"/><br />
+            <input type="password" name="password" placeholder="password"/><br />
+            <input type="submit" value="login" />
+            <input type="hidden" name="next" value="/bookshow/" />
+        </form>
+    </div><!--/.navbar-collapse -->
 <div>
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">REGISTER</h2>
+        <p> if you don't have account then register here </p>
     <form action="/register/" method = "POST">
         {% csrf_token %}
         

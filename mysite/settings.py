@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+#print(os.path.dirname(os.path.dirname(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -27,8 +27,9 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 TEMPLATE_DIRS=(
-   os.path.join(BASE_DIR,'templates'),
+   os.path.join(BASE_DIR,'bookstore/templates'),
 )
+#print(os.path.join(BASE_DIR,'templates'))
 # Application definition
 
 INSTALLED_APPS = (
@@ -89,8 +90,11 @@ STATIC_ROOT = 'mysit/bookstore/static'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-    
+    os.path.join(BASE_DIR, 'bookstore/static'),
+        
 )
+#print(os.path.join(BASE_DIR, 'bookstore/static'))
 
-
+STATICFILES_FINDERS=(
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)

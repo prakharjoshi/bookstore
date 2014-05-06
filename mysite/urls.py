@@ -6,6 +6,8 @@ from bookstore import views
 #from .. import bookstore.views
 from django.contrib import admin
 from django.contrib import auth
+from django.conf import settings
+from django.conf.urls.static import static
 #from django.conf import settings
 #from django.conf.urls.static import static
 admin.autodiscover()
