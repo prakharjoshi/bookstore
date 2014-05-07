@@ -17,6 +17,7 @@ urlpatterns = patterns(' ',
 	#url(r'^auth/$','django_test.views.auth_view'),
 	url(r'^logout/$',views.logout,name='logout'),
 	url(r'^invalid/$',views.invalid_login,name='invalid_login'),
+	#url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
 	#url(r'^register/$',views.login, name = 'register'),
 )  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
