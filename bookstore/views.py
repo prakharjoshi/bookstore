@@ -306,7 +306,7 @@ def invalid_login(request):
 
 def logout(request):
 	auth.logout(request)
-	return render_to_response('/logout.html/')
+	return render_to_response('bookstore/logout.html/')
 
 
 
