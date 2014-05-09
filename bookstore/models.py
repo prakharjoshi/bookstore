@@ -6,10 +6,15 @@ CHOICES = (
 	('I','Import'),
 )
 
+
+
+
 class book(models.Model):
 	name = models.CharField(max_length = 50)
     	author = models.ForeignKey('author')
 	publisher = models.ForeignKey('publisher')
+	category = models.CharField(max_length = 20)
+	#post = models.ForeignKey('post')
 	
 
 	def __unicode__(self):
@@ -53,6 +58,12 @@ class sign(models.Model):
 
 	def __unicode__(self):
 		return self.username"""
+
+"""lass vote(models.Model):
+	choice = models.CharField(max_length = 20)
+
+	def __unicode__(self):
+		return self.choice"""
 
 
 

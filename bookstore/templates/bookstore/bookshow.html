@@ -7,20 +7,15 @@
     
     <h2> WELCOME TO BOOKSTORE </p>
       <p> Hello {{User.username}} </p>
-      {% if error %}
-        <p style="color: red;">Please submit a search term.</p>
-      {% endif %}
-      <form action = "/search/" method = "get">
-        <input type = "text" name = q>
-        <input type = "submit" value = "search">
-      </form>
 
+    
+        <p> select a category </p>
       
-	 <ul>
-      {% for book in books %}
-        <li><a href="/bookshow/{{ book.id }}/">{{ book.name }}</a></li>
-      {% endfor %}
-   </ul>
+      <ul id="drop1" data-dropdown-content class="f-dropdown">
+        <li><a href="/maths">Maths</a></li>
+        <li><a href="/science">Science</a></li>
+        <li><a href="/novel">novel</a></li>
+      </ul>
     
 
     

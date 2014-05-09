@@ -9,13 +9,23 @@
         {% csrf_token %}
         
         <input type="text" name="bookname" placeholder="NAME"/><br />
+        <select name="category">
+            <option value="maths">maths</option>
+            <option value="science">Science</option>
+            <option value="novel">novel</option>
+            <option value="other">other</option>
+        </select> <br />
         <input type="text" name="author" placeholder="Author's name"/><br />
         <input type="text" name="publisher" placeholder="publisher's name"/><br />
         
        
         <input type="submit" value = "ADD"/>
     </form>
+      
 </div>
 </body>
 
 {% endblock %}
+
+
+

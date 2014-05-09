@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+  <body>
+    
+    <h2> WELCOME TO BOOKSTORE </p>
+      <p> Hello {{User.username}} </p>
+
+    
+
+      {% if error %}
+        <p style="color: red;">Please submit a search term.</p>
+      {% endif %}
+
+      <form action = "/search/" method = "get">
+        <input type = "text" name = q>
+        <input type = "submit" value = "search">
+      </form>
+
+      
+	 <ul>
+      {% for book in b %}
+        <li><a href="/bookshow/{{ book.id }}/">{{ book.name }}</a></li>
+      {% endfor %}
+   </ul>
+    
+
+    
+  </body>
+{% endblock %}

@@ -21,12 +21,34 @@ def about(request):
 
 def bookshow(request):
 	books = book.objects.all().order_by('name')
+
+	
+	
+	
+
 	#context = {'books':books}
 	return render(request,'bookstore/bookshow.html/',{'books':books})
 	#form = SignUpForm()
 #def frontpage(request):
 	#SSreturn render_to_response('frontpage.html',context_instance = RequestContext(request))
 
+
+def maths(request):
+	b = book.objects.filter(category='maths')
+	return render(request,'bookstore/bookshow_maths.html/',{'b':b})
+
+def science(request):
+	c = book.objects.filter(category='science')
+	return render(request,'bookstore/bookshow_science.html/',{'c':c})
+
+def novel(request):
+	a = book.objects.filter(category='novel')
+	return render(request,'bookstore/bookshow_science.html/',{'a':a})
+
+
+
+
+@login_required(login_url='/login/')
 def bookdetails(request , book_id):
 	#authors = book.objects.get(author)
 	authors = get_object_or_404(author , pk=book_id)
@@ -250,6 +272,7 @@ def addbook(request):
 	if request.method == "POST":
 		b = book()
 		b.name = request.POST['bookname']
+		b.category = request.POST['category']
 		a = author()
 		a.first_name = request.POST['author']
 		a.save()
@@ -309,6 +332,13 @@ def logout(request):
 	return render_to_response('bookstore/logout.html/')
 
 
+def vote(request,book_id):
+	if request.method == "POST":
+		a = vote()
+		a.choice = request.POST['choice']
+		a.save()
+		return render_to_response('bookstore/bookdetail.html')
+	
 
 
 
