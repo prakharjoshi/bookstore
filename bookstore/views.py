@@ -1,15 +1,19 @@
 from django.shortcuts import *
 from django.template import RequestContext
 from django.core.mail import send_mail
-#from django import forms
 from bookstore.models import book, author, publisher
-#from django.shortcuts import get_object_or_404, render
-#from bookstore.forms import UserForm
+from django.http import HttpResponseRedirect
+from django.conf import settings
+from django.contrib.auth import REDIRECT_FIELD_NAME, login, logout, authenticate
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login,logout
+from django.core.urlresolvers import reverse
+from django.contrib.auth.views import password_reset,password_change,password_change_done,password_reset_done,password_reset_confirm
 from django.contrib import auth
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required,user_passes_test
+from django.contrib.auth.views import password_reset
+
+
 
 
 def home(request):
@@ -338,7 +342,26 @@ def vote(request,book_id):
 		a.choice = request.POST['choice']
 		a.save()
 		return render_to_response('bookstore/bookdetail.html')
+
+"""@login_required(login_url='/login/')
+def password_change(request):
+	if request.method == "POST":
+		u = User.objects.get(username = request.POST['username'])
+		if u.is_authenticated:
+			new_password = request.POST['new_password']
+			confirm_password = request.POST['confirm_password']
+			u.set_password(new_password)
+			return HttpResponseRedirect('/password_change_done/')
+		else:
+			return render(request,'bookstore/password_change_error.html/')
+		
+	return render(request,'bookstore/password_change.html/')
+
 	
+	
+def password_change_done(request):
+	return render(request,'bookstore/password_change_done.html/')"""
+
 
 
 

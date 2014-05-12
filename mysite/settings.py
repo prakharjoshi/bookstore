@@ -98,3 +98,15 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS=(
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+
+LOGIN_REDIRECT_URL = '/'
+
+
+ #add email settings
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'http://127.0.0.1:8000/'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_SUBJECT_PREFIX = '[Django] '
