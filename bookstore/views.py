@@ -270,7 +270,7 @@ def register(request):
 	#return render(request,'bookstore/signup.html',{'error':error})
 
 
-@login_required(login_url='/login/')
+@login_required(login_url='/accounts/login/')
 def addbook(request):
 	error = []
 	if request.method == "POST":

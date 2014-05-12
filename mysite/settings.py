@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    #'django.contrib.sites',
     'django.contrib.staticfiles',
     'bookstore',
     
@@ -104,9 +105,10 @@ LOGIN_REDIRECT_URL = '/'
 
 
  #add email settings
-EMAIL_USE_TLS = False
-EMAIL_HOST = 'http://127.0.0.1:8000/'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_SUBJECT_PREFIX = '[Django] '
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT = 587
+#EMAIL_HOST_USER = 'user@domain.com'
+#EMAIL_HOST_PASSWORD = 'yourpassword'
+#EMAIL_USE_TLS = True
+#DEFAULT_FROM_EMAIL = 'user@domain.com'
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
