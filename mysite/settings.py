@@ -103,12 +103,13 @@ STATICFILES_FINDERS=(
 
 LOGIN_REDIRECT_URL = '/'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
  #add email settings
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_PORT = 587
-#EMAIL_HOST_USER = 'user@domain.com'
-#EMAIL_HOST_PASSWORD = 'yourpassword'
-#EMAIL_USE_TLS = True
-#DEFAULT_FROM_EMAIL = 'user@domain.com'
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'prakhar126'
+EMAIL_HOST_PASSWORD = 'heartheacker'
+DEFAULT_FROM_EMAIL = 'prakhar126@gmail.com'
+DEFAULT_TO_EMAIL = 'to email'
