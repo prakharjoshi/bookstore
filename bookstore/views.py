@@ -22,7 +22,7 @@ def home(request):
 def about(request):
 	return render_to_response('bookstore/about.html/',context_instance=RequestContext(request))
 
-
+@login_required(login_url='/login/')
 def bookshow(request):
 	books = book.objects.all().order_by('name')
 
@@ -333,7 +333,7 @@ def invalid_login(request):
 
 def logout(request):
 	auth.logout(request)
-	return render_to_response('bookstore/logout.html/')
+	return render_to_response('bookstore/frontpage.html/')
 
 
 def vote(request,book_id):

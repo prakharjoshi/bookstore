@@ -1,16 +1,12 @@
-
 {% extends "base.html" %}
 
+{% block content %}
+<body>
+    <h1> BOOKSTORE </h1>
 
- {% block content %}
-  <body>
-    <h1>WELCOME TO BOOKSTORE </h1>
-    <h3>SIGNUP TO GET IN LIBRARAY<h3>    
-
-  </body>
-
-    {% endblock %}
-
-
-
-
+    <p> This is an e-library </p>
+    <p>If you are new to this library please <a href="/register"> register </a> yourself to get into the library.</p>
+    <p> If you already have an account please <a href="/login"> login </a>. 
+    
+</body>
+{% endblock %}
