@@ -16,7 +16,10 @@ class publisheradmin(admin.ModelAdmin):
 class Useradmin(admin.ModelAdmin):
 	list_display = ('username',)"""
 
+class MyUserAdmin(UserAdmin):  
+    add_form = MyUserCreationForm   
 
+admin.site.register(User,MyUserAdmin)
 
 
 	

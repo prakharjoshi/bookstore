@@ -115,6 +115,7 @@ DEFAULT_FROM_EMAIL = 'prakhar126@gmail.com'
 DEFAULT_TO_EMAIL = 'to email'
 
 
+# Parse database configuration from $DATABASE_URL
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
 

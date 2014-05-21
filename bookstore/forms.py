@@ -1,53 +1,18 @@
-from django import forms
-from django.contrib.auth.models import User 
+from models import User #you can use get_user_model
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth import forms
 
+class MyUserCreationForm(UserCreationForm):
+    def clean_username(self):
+        # Since User.username is unique, this check is redundant,
+        # but it sets a nicer error message than the ORM. See #13147.
+        username = self.cleaned_data["username"]
+        try:
+            User._default_manager.get(username=username)
+        except User.DoesNotExist:
+            return username
+        raise forms.ValidationError(self.error_messages['duplicate_username'])
 
-
-class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput) 
-
-"""ITLE_CHOICES = (
-		('MR' , 'Mr'),
-		('MRS', 'Mrs'),
-		('MS' , 'Ms'),
-)
-
-class Author(models.Model):
-	name = models.CharField(max_length=100)
-	title = models.Charfield(max_length=3 , choices=TITLE_CHOICES)
-	#birth_date = models.DateField(blank=True, null=True)
-
-	def __unicode__ (self):
-		return self.name
-
-class Book(models.Model):
-	name = models.Charfield(max_length=100)
-	authors = models.ManyToManyFields(Author)
-
-class AuthForm(ModelForm):
-	class Meta:
-		models = author
-		fields = ['name','title','birth_date']
-
-class BookForm(ModelForm):
-	class Meta:
-		model = book
-		fields = ['name','authors']
-
-class SignUpForm(forms.Form):
-	username = forms.CharField(max_length=30)
-	password = forms.CharField(max_length=50)
-
-
-class Meta:
-		model = signup
-		fields = ['username','password']
-
-
-class UserForm(forms.ModelForm):
-	password = forms.CharField(widget = forms.PasswordInput())
-
-	class meta:
-		model = User"""
-
+    class Meta(UserCreationForm.Meta):
+        model = User
