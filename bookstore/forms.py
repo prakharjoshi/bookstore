@@ -1,4 +1,4 @@
-from models import User #you can use get_user_model
+"""from models import User #you can use get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth import forms
@@ -15,4 +15,4 @@ class MyUserCreationForm(UserCreationForm):
         raise forms.ValidationError(self.error_messages['duplicate_username'])
 
     class Meta(UserCreationForm.Meta):
-        model = User
+        model = User"""
