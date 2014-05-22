@@ -29,6 +29,17 @@ ALLOWED_HOSTS = []
 TEMPLATE_DIRS=(
    os.path.join(BASE_DIR,'bookstore/templates'),
 )
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
 #print(os.path.join(BASE_DIR,'templates'))
 # Application definition
 
@@ -98,7 +109,7 @@ STATICFILES_FINDERS=(
 
 LOGIN_REDIRECT_URL = '/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+"""EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
  #add email settings
 EMAIL_USE_TLS = True
@@ -107,7 +118,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'prakhar126'
 EMAIL_HOST_PASSWORD = ''
 DEFAULT_FROM_EMAIL = 'prakhar126@gmail.com'
-DEFAULT_TO_EMAIL = 'to email'
+DEFAULT_TO_EMAIL = 'to email'"""
 
 
 """# Parse database configuration from $DATABASE_URL
