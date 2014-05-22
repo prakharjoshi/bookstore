@@ -2,7 +2,7 @@
 .pydevproject
 venv
 staticfiles
-*.py[cod]
+
 
 # C extensions
 *.so
