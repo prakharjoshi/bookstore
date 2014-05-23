@@ -7,7 +7,7 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
-from settings_common import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -115,9 +115,8 @@ DEFAULT_FROM_EMAIL = 'prakhar126@gmail.com'
 DEFAULT_TO_EMAIL = 'to email'
 
 
-# Parse database configuration from $DATABASE_URL
+ Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES = {}
 DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
