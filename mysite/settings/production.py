@@ -24,7 +24,7 @@ def get_env_setting(setting):
 #ALLOWED_HOSTS = []
 ########## END HOST CONFIGURATION
 
-########## EMAIL CONFIGURATION
+"""########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -48,7 +48,7 @@ EMAIL_USE_TLS = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = EMAIL_HOST_USER
-########## END EMAIL CONFIGURATION
+########## END EMAIL CONFIGURATION"""
 
 ########## DATABASE CONFIGURATION
 DATABASES = {}

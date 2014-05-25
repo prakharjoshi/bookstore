@@ -18,7 +18,16 @@ TEMPLATE_DEBUG = DEBUG
 
 ########## EMAIL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+"""EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'prakhar126'
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = 'prakhar126@gmail.com'
+DEFAULT_TO_EMAIL = 'to email'"""
+
 ########## END EMAIL CONFIGURATION
 
 
@@ -27,7 +36,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -39,13 +48,14 @@ DATABASES = {
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-CACHES = {
+"""CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
-}
+}"""
 ########## END CACHE CONFIGURATION
 
+#DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 ########## TOOLBAR CONFIGURATION
 # See: http://django-debug-toolbar.readthedocs.org/en/latest/installation.html#explicit-setup
