@@ -1,23 +1,26 @@
 """Production settings and globals."""
 
-from __future__ import absolute_import
+#from __future__ import absolute_import
 
-from os import environ
+#import os
+#import sys
 
+#from os import environ
+import os
 from .base import *
 
 # Normally you should not import ANYTHING from Django directly
 # into your settings, but ImproperlyConfigured is an exception.
-from django.core.exceptions import ImproperlyConfigured
+#from django.core.exceptions import ImproperlyConfigured
 
 
-def get_env_setting(setting):
-    """ Get the environment setting or return exception """
+"""def get_env_setting(setting):
+        Get the environment setting or return exception
     try:
         return environ[setting]
     except KeyError:
         error_msg = "Set the %s env variable" % setting
-        raise ImproperlyConfigured(error_msg)
+        raise ImproperlyConfigured(error_msg)"""
 
 ########## HOST CONFIGURATION
 # See: https://docs.djangoproject.com/en/1.5/releases/1.5/#allowed-hosts-required-in-production
@@ -49,27 +52,30 @@ EMAIL_USE_TLS = True
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = EMAIL_HOST_USER
 ########## END EMAIL CONFIGURATION"""
+#DEBUG = False
 
+#TEMPLATE_DEBUG = DEBUG
 ########## DATABASE CONFIGURATION
-DATABASES = {}
+#DATABASES = {}
 ########## END DATABASE CONFIGURATION
 
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
-CACHES = {}
+#CACHES = {}
 ########## END CACHE CONFIGURATION
 
 
 ########## SECRET CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = get_env_setting('SECRET_KEY')
+#SECRET_KEY = get_env_setting('SECRET_KEY')
+#SECRET_KEY = 'SECRET_KEY'
 
 ########## END SECRET CONFIGURATION
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config(default='postgres://vltroennliqmwm:Fqyvjfq3bCZja3-x-x0RZx80OY@ec2-54-197-241-96.compute-1.amazonaws.com:5432/dclibimkpak522')
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -78,11 +84,20 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#import os
+"""BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+)"""
+
+
+PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_PATH, 'static'),
 )

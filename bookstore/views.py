@@ -47,7 +47,7 @@ def science(request):
 
 def novel(request):
 	a = book.objects.filter(category='novel')
-	return render(request,'bookstore/bookshow_science.html/',{'a':a})
+	return render(request,'bookstore/bookshow_novel.html/',{'a':a})
 
 
 
@@ -298,7 +298,7 @@ def addbook(request):
 
 		
 
-		return HttpResponseRedirect('/')
+		return HttpResponseRedirect('/bookshow/')
 	else:
 		error.append('all fields are required')
 	return render(request,'bookstore/addbook.html',{'error':error})

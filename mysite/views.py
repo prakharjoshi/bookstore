@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+"""from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.contib import auth
 from django.core.context_processors import csrf
@@ -27,4 +27,4 @@ def invalid_login(request):
 
 def logout(request):
 	auth.logout(request)
-	return render_to_response('bookstore/logout.html/')
+	return render_to_response('bookstore/logout.html/')"""
