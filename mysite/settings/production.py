@@ -94,9 +94,18 @@ STATICFILES_DIRS = (
 )"""
 
 
-PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+"""PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 #os.path.join(PROJECT_PATH, 'staticfiles')
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_PATH, 'static'),
+)"""
+
+import os
+PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
