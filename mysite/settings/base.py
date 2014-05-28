@@ -128,7 +128,7 @@ STATIC_URL = '/static/'
 )"""
 
 STATICFILES_DIRS = (
-    normpath(join(SITE_ROOT, 'static')),
+    normpath(join(PROJECT_ROOT, 'static')),
 )
 #print(os.path.join(BASE_DIR, 'bookstore/static'))
 
