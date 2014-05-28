@@ -114,7 +114,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 #STATIC_ROOT = 'mysit/bookstore/static'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = normpath(join(SITE_ROOT, 'assets'))
 #SITE_ROOT = dirname(DJANGO_ROOT)
 
 # URL prefix for static files.
@@ -133,7 +134,7 @@ STATICFILES_DIRS = (
 
 STATICFILES_FINDERS=(
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
 
