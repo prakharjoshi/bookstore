@@ -95,8 +95,8 @@ STATICFILES_DIRS = (
 
 
 PROJECT_PATH = os.path.dirname(os.path.dirname(__file__))
-#STATIC_ROOT = '/app/staticfiles'
-STATIC_ROOT = "/var/www/example.com/static/"
+STATIC_ROOT = 'staticfiles'
+#STATIC_ROOT = "/var/www/example.com/static/"
 #os.path.join(PROJECT_PATH, 'staticfiles')
 STATIC_URL = '/static/'
 
