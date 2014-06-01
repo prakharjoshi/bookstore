@@ -109,17 +109,17 @@ USE_TZ = True
 
 STATICFILES_FINDERS=(
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
 )
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
 STATIC_URL = '/static/'
 
 PROJECT_DIR = os.path.dirname(__file__)
 
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_PATH, 'static'),
+    os.path.join(SITE_ROOT, 'bookstore/static'),
 )
 
 
