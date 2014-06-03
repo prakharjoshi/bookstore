@@ -45,6 +45,6 @@ if not settings.DEBUG:
     )"""
 
 if not settings.DEBUG:
-    urlpatterns += patterns('django.contrib.staticfiles.views',
-        url(r'^static/STATIC_ROOT/$', 'serve'),
+    urlpatterns += patterns(”,
+            (r’^static/(?P.*)$’, ‘django.views.static.serve’, {‘document_root’: settings.STATIC_ROOT}),
     )
