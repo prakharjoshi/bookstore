@@ -21,8 +21,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # serving static files
-STATIC_ROOT = normpath(join(SITE_ROOT, 'staticfiles'))
-STATIC_URL = '/static/'
+STATIC_ROOT = normpath(join(SITE_ROOT, 'staticfiles/'))
+STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = (
     os.path.join(SITE_ROOT, 'bookstore/static'),
 )

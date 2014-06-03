@@ -44,7 +44,7 @@ if not settings.DEBUG:
         }),
     )"""
 
-"""from mysite import settings.production
-urlpatterns += patterns('',
-        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-    )"""
+if settings.DEBUG:
+    urlpatterns += patterns('django.contrib.staticfiles.views',
+        url(r'^static/STATIC_ROOT/$', 'serve'),
+    )
