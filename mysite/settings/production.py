@@ -22,7 +22,7 @@ ALLOWED_HOSTS = ['*']
 
 # serving static files
 STATIC_ROOT = normpath(join(SITE_ROOT, 'staticfiles/'))
-STATIC_URL = '/mysit/staticfiles/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(SITE_ROOT, 'bookstore/static'),
 )
