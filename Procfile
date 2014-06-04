@@ -1,1 +1,1 @@
-web: gunicorn mysite.wsgi
+python manage.py runserver --settings=mysite.settings.production
