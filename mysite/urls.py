@@ -23,7 +23,8 @@ urlpatterns = patterns('',
         name='password_reset_confirm'),
     url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
     
-)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+)
+# static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
 if settings.DEBUG:
@@ -32,9 +33,12 @@ if settings.DEBUG:
                             url(r'^__debug__/', include(debug_toolbar.urls)),
                             )
 
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()
+
 if not settings.DEBUG:
-    urlpatterns += patterns('',
-            url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-    )
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)                     
+    
+                            
 
     
