@@ -40,7 +40,7 @@ if settings.DEBUG:
 
 if not settings.DEBUG:
     urlpatterns += patterns('',
-        url(r'^/static/$','django.views.static.serve', kwargs=settings.STATIC_ROOT),
+        url(r'^/static$','django.views.static.serve', kwargs=settings.STATIC_ROOT),
     )                     
     
                             
