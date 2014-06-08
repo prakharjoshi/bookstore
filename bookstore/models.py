@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from mysite.settings.base import MEDIA_ROOT
+from time import time
 
 CHOICES = (
 	('D', 'Domestic'),
@@ -7,15 +9,15 @@ CHOICES = (
 )
 
 
-
+def get_upload_file_name(instance, filename):
+	return "uploaded_files/%s_%s" % (str(time()).replace('.','_'),filename)
 
 class book(models.Model):
 	name = models.CharField(max_length = 50)
     	author = models.ForeignKey('author')
 	publisher = models.ForeignKey('publisher')
 	category = models.CharField(max_length = 20)
-	#post = models.ForeignKey('post')
-	
+	docfile = models.FileField(upload_to = get_upload_file_name)
 
 	def __unicode__(self):
 		return self.name
@@ -37,33 +39,6 @@ class publisher(models.Model):
 	def __unicode__(self):
 		return self.name
 
-
-"""class signup(models.Model):
-	username = models.CharField(max_length = 50)
-	
-
-
-	def __unicode__ (self):
-		return self.username
-	
-
-class sign(models.Model):
-	username = models.CharField(max_length = 30)
-
-	def __unicode__(self):
-		return self.username"""
-
-"""class UserProfile(models.Model):
-	user = models.OneToOneField(User)
-
-	def __unicode__(self):
-		return self.username"""
-
-"""lass vote(models.Model):
-	choice = models.CharField(max_length = 20)
-
-	def __unicode__(self):
-		return self.choice"""
 
 
 

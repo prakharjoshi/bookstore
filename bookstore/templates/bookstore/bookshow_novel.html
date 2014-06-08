@@ -22,6 +22,7 @@
 	 <ul>
       {% for book in a %}
         <li><a href="/bookshow/{{ book.id }}/">{{ book.name }}</a></li>
+        <p><a href="/media/{{book.docfile}}/"> {{book.name}} file</a></p>
       {% endfor %}
    </ul>
     
