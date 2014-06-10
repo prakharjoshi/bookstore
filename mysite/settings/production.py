@@ -8,7 +8,7 @@ from .base import *
 #from django.core.exceptions import ImproperlyConfigured
 
 
-#DEBUG = False
+DEBUG = False
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
