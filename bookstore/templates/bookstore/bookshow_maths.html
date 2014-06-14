@@ -1,30 +1,67 @@
-{% extends "base1.html" %}
+{% extends "pp.html" %}
 
 {% block content %}
+
+
   
-  <body>
+
+
+  <div class="container-fluid">
+      <div class="jumbotron">
+          <h2> WELCOME TO BOOKSTORE </p>
+      </div>
+    </div>
+
+
+
+  <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              {% if error %}
+                <p style="color: red;">Please submit a search term.</p>
+              {% endif %}
+
+              <form class="navbar-form navbar-left" role="search" action = "/search/" method = "get">
+                <div class="form-group">
+                  <input type = "text" class="form-control" placeholder="Search" name = q>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+            
+          <div class="row">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Book Name</th>
+                  <th>Doc File</th>
+                  <th>Author</th>
+                </tr>
+              </thead>
+            <tbody>
+      {% for book in b %}
+        <tr>
+          <td>{{ book.name }}</td>
+          <td><a href="/media/{{book.docfile}}/"> {{book.name}} file</a></td>
+          <td>{{book.author}}</td>
+        </tr>
+      {% endfor %}
+        
+    </tbody>
+  </table>
+          </div>
+ 
+  </div>
+  
+  
     
-    <h2> WELCOME TO BOOKSTORE </p>
-      <p> Hello {{User.username}} </p>
-
-    
-
-      {% if error %}
-        <p style="color: red;">Please submit a search term.</p>
-      {% endif %}
-
-      <form action = "/search/" method = "get">
-        <input type = "text" name = q>
-        <input type = "submit" value = "search">
-      </form>
+       
 
       
-	 <ul>
-      {% for book in b %}
-        <li><a href="/bookshow/{{ book.id }}/">{{ book.name }}</a></li>
-        <p><a href="/media/{{book.docfile}}/"> {{book.name}} file</a></p>
-      {% endfor %}
-   </ul>
+
+      
+	 
+        
     
 
     

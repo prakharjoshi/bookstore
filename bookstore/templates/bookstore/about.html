@@ -1,97 +1,91 @@
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+{% extends "pp.html" %}
 
-    <title>BOOKSTORE</title>
+{% block content %}
 
-    <!-- Bootstrap core CSS -->
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="navbar-static-top.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-
-    <!-- Static navbar -->
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">BOOKSTORE</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="/active"><a href="/">Home</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Default</a></li>
-            <li class="active"><a href="./">Static top</a></li>
-            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+  <div class="container-fluid">
+      <div class="jumbotron">
+          <h2> WELCOME TO BOOKSTORE </p>
       </div>
     </div>
-
-
-    <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      
-       <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        {% block content %}
-  <body>
-    <h1>WELCOME TO BOOKSTORE </h1>
-    <a href="https://www.facebook.com/ppp3103"> ABOUT THE AUTHOR </a>
-
     
 
-  </body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                           
+            </div>
+            <div class="col-md-6">
+                <h2> Add Books and help others!! </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                           
+            </div>
+ 
+            <div class="col-md-4">
+                <form class="form-horizontal" action="/addbook/" method = "POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="Name" class="control-label col-xs-3">Name</label>
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control" id="Name" name="bookname" placeholder="Book Name">
+                        </div>
+                    </div>
 
-    {% endblock %}
+                    <div class="form-group">
+                        <label for="Author" class="control-label col-xs-3">Author</label>
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control" id="Author" name="author" placeholder="Author">
+                        </div>
+                    </div>
 
-      </div>
+                    <div class="form-group">
+                        <label for="Publisher" class="control-label col-xs-3">Publisher</label>
+                        <div class="col-xs-9">
+                            <input type="text" class="form-control" id="Publisher" name="publisher" placeholder="Publisher">
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="Publisher" class="control-label col-xs-3">Category</label>
+                        <div class="col-xs-9">
+                            <div class="panel panel-default">
+                             <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" name="category">
+                                
+                                    <select name="category">
+                                        <option value="maths">maths</option>
+                                        <option value="science">Science</option>
+                                        <option value="novel">novel</option>
+                                    </select> 
+                                </button>
+                                
+                            
+                             </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="file" class="control-label col-xs-3">File Input</label>
+                        <div class="col-xs-9">
+                            <input type="file" name="file" />
+                        </div>
+                    </div>
+                    
+                     <input type="submit" value="ADD" />
+                </form>
 
-    </div> <!-- /container -->
+                                      
+            </div>
+          </div>
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
-  </body>
-</html>
-
-
-
+          
+    </div>
+  
+  
+{% endblock %}
 
 

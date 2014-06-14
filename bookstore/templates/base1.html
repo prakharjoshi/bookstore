@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="media/logo.jpg">
 
     <title>BOOKSTORE</title>
 
@@ -28,6 +28,8 @@
 
   <body>
 
+    
+
     <!-- Static navbar -->
     <!--<div class="navbar navbar-default navbar-static-top" role="navigation">-->
       <div class="container">
@@ -38,18 +40,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/bookshow">BOOKSTORE</a>
+          <a class="navbar-brand" href="/bookshow"><span class="glyphicon glyphicon-home"></span>BOOKSTORE</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/addbook">ADD A BOOK</a></li>
-            
-            
+                       
           </ul>
 
 
           <ul class="nav navbar-nav navbar-right">
-              <li><a = href="/logout"> LOGOUT </a></li>          
+                      
           </ul>
           
         </div><!--/.nav-collapse -->
@@ -57,26 +57,47 @@
       </div>
     </div>
 
+  
+  <div class="container-fluid">
+    <div class="jumbotron">
+        <h2> WELCOME TO BOOKSTORE  </h2>
+    </div>
+  </div>
+
 
      
 
+       
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      
-       <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      
+      {% block content %} {% endblock %}
+          
 
 
-      <div class="jumbotron">
-        {% block content %}  {% endblock %}
-
-      </div>
 
 
     </div> <!-- /container -->
+
+    <footer>
+        <div class="container">
+        <div class="row">
+          <div class="col-md-4">&copy; 2014</div>
+          <div class="col-md-4">
+            <ul class="nav nav-pills">
+              
+              <li><a href="#">Support 24x7</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          
+          
+        <div class="col-md-4">
+            <h3 class="text-right">BOOKSTORE</h3>
+          </div>
+        </div>
+        </div>
+      </footer>
 
 
     <!-- Bootstrap core JavaScript

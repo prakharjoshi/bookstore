@@ -19,9 +19,18 @@ from django.contrib.auth.views import password_reset
 def home(request):
 	return render_to_response('bookstore/frontpage.html/',context_instance=RequestContext(request))
 
-def about(request):
-	return render_to_response('bookstore/about.html/',context_instance=RequestContext(request))
+def contact_us(request):
+	return render_to_response('bookstore/contact_us.html/',context_instance=RequestContext(request))
 
+def company_details(request):
+	return render_to_response('bookstore/company_details.html/',context_instance=RequestContext(request))
+
+def private_policy(request):
+	return render_to_response('bookstore/privacy_policy.html/',context_instance=RequestContext(request))
+
+def support(request):
+	return render_to_response('bookstore/support.html/',context_instance=RequestContext(request))
+	
 @login_required(login_url='/login/')
 def bookshow(request):
 	books = book.objects.all().order_by('name')
@@ -109,7 +118,7 @@ def addbook(request):
 
 		
         
-		return HttpResponseRedirect('/bookshow/')
+		return HttpResponseRedirect('/bookshow')
 	else:
 		error.append('all fields are required')
 	
@@ -126,7 +135,7 @@ def login(request):
 		user = auth.authenticate(username = username, password = password)
 		if user is not None:
 				auth.login(request,user)
-				return HttpResponseRedirect('/bookshow/')
+				return HttpResponseRedirect('/bookshow')
 		else:
 			return HttpResponseRedirect('/invalid/')
 	else:
@@ -141,15 +150,9 @@ def invalid_login(request):
 
 def logout(request):
 	auth.logout(request)
-	return render_to_response('bookstore/frontpage.html/')
+	return HttpResponseRedirect('/')
 
 
-def vote(request,book_id):
-	if request.method == "POST":
-		a = vote()
-		a.choice = request.POST['choice']
-		a.save()
-		return render_to_response('bookstore/bookdetail.html')
 
 
 

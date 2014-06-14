@@ -1,24 +1,49 @@
 
-{% extends "base1.html" %}
+{% extends "pp.html" %}
 
 {% block content %}
-  
-  <body>
-    
-    <h2> WELCOME TO BOOKSTORE </p>
-      
-    
-        <p> select a category </p>
-     
-        <li><a href="/maths">Maths</a></li>
-        <li><a href="/science">science</a></li>
-        <li><a href="/novels">novels</a></li>
-        
-      </ul>
-    
 
-    
-  </body>
+
+	<div class="container-fluid">
+      <div class="jumbotron">
+        <div class="row">
+        	<h2> WELCOME TO BOOKSTORE </h2>
+        </div>
+        <div class="row">
+        <div class="col-md-10">
+          <p> Share books and help others </p>
+        </div>
+        <div class="col-md-2">
+              <a href="addbook"><span class="glyphicon glyphicon-plus"></span>Add Book</a>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+          
+
+          <div class="row">
+            <div class="col-md-4">
+              <a href="/maths"><img class="img-responsive img-circle" src="media/maths.gif"></a>
+              <h3 class="text-center">Math Section</h3>
+            </div>
+ 
+            <div class="col-md-4">
+              <a href="/science"><img class="img-responsive img-circle" src="media/science.jpg"></a>
+              <h3 class="text-center">Science Section</h>              
+            </div>
+ 
+            <div class="col-md-4">
+              <a href="/novels"><img class="img-responsive img-circle" src="media/novel.jpg"></a>
+              <h3 class="text-center">Novels</h3>                         
+            </div>
+          </div>
+
+          
+    </div>
+  
+  
 {% endblock %}
 
 
