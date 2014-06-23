@@ -31,7 +31,7 @@ def private_policy(request):
 def support(request):
 	return render_to_response('bookstore/support.html/',context_instance=RequestContext(request))
 	
-@login_required(login_url='/login/')
+@login_required(login_url='/')
 def bookshow(request):
 	books = book.objects.all().order_by('name')
 	return render(request,'bookstore/bookshow.html/',{'books':books})
@@ -52,7 +52,7 @@ def novel(request):
 
 
 
-@login_required(login_url='/login/')
+@login_required(login_url='/')
 def bookdetails(request , book_id):
 	authors = get_object_or_404(author , pk=book_id)
 	publishers = get_object_or_404(publisher, pk=book_id)
@@ -98,7 +98,7 @@ def register(request):
 
 		
 	
-@login_required(login_url='/login/')
+@login_required(login_url='/')
 def addbook(request):
 	error = []
 	if request.method == "POST":
@@ -146,7 +146,8 @@ def login(request):
 
 
 def invalid_login(request):
-	return render_to_response('bookstore/invalid_login.html')
+	error = True
+	return render(request,'bookstore/frontpage.html',{'error':error})
 
 def logout(request):
 	auth.logout(request)

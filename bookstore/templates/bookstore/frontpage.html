@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="media/logo.jpg">
+    <link rel="shortcut icon" href="/media/logo.jpg">
 
     <title>BOOKSTORE</title>
 
@@ -45,14 +45,16 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> About Us<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="company_details">Company Details</a></li>
-                  <li><a href="contact_us">Contact Us</a></li>
+                  <li><a href="/company_details">Company Details</a></li>
+                  <li><a href="/contact_us">Contact Us</a></li>
                 </ul>
               </li>
             </ul>
             <ul class="nav pull-right">
+
             <form class="form-inline" method="POST" action="/login/">
               {% csrf_token %}
+
               <div class="form-group">
                 <label class="sr-only" for="username">Username</label>
                 <input type="text" name="username" placeholder="USERNAME"/><br />
@@ -62,7 +64,9 @@
                 <input type="password" name="password" placeholder="password"/><br />
               </div>
               <a href="password_reset">Forgot Password </a></p>
+
               <button type="submit" class="btn btn-primary">Login</button>
+
             </form>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -76,13 +80,14 @@
       <div class="jumbotron">
         <h1>E-LIBRARY</h1>
         <p>Get knowledege and Share your knowledge with the world</p>
+
         </div>
     </div>
 
     <div class="container">
           <div class="row">
             <div class="col-md-9">
-              <img src="media/elibrary.jpg">
+              <img src="/media/elibrary.jpg">
             </div>
           <div class="row">
             <div class="col-md-3">
