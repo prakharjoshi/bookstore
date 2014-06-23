@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="media/logo.jpg">
 
     <title>BOOKSTORE</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <!-- <link href="navbar-static-top.css" rel="stylesheet"> -->
@@ -28,6 +28,8 @@
 
   <body>
 
+    
+
     <!-- Static navbar -->
     <!--<div class="navbar navbar-default navbar-static-top" role="navigation">-->
       <div class="container">
@@ -38,18 +40,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/bookshow">BOOKSTORE</a>
+          <a class="navbar-brand" href="/bookshow"><span class="glyphicon glyphicon-home"></span>BOOKSTORE</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/addbook">ADD A BOOK</a></li>
-            
-            
+                       
           </ul>
 
 
           <ul class="nav navbar-nav navbar-right">
-              <li><a = href="/logout"> LOGOUT </a></li>          
+                      
           </ul>
           
         </div><!--/.nav-collapse -->
@@ -57,33 +57,35 @@
       </div>
     </div>
 
+  
+  <div class="container-fluid">
+    <div class="jumbotron">
+        <h2> WELCOME TO BOOKSTORE  </h2>
+    </div>
+  </div>
+
 
      
 
+       
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      
-       <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      
+      {% block content %} {% endblock %}
+          
 
 
-      <div class="jumbotron">
-        {% block content %}  {% endblock %}
-
-      </div>
 
 
     </div> <!-- /container -->
 
+    
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/static/js/bootstrap.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}/js/bootstrap.js"></script>
+    <script src="{{STATIC_URL}}/js/bootstrap.min.js"></script>
   </body>
 </html>
 
