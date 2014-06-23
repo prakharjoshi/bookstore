@@ -86,7 +86,7 @@ def register(request):
 
 		
 		user_form.save()
-		return HttpResponseRedirect('bookshow/')
+		return HttpResponseRedirect('/')
 			
 	else:
 		error.append("invalid information")
