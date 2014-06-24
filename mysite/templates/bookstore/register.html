@@ -1,0 +1,27 @@
+{% extends "base2.html" %}
+
+{% block content %}
+<body>
+    
+<div>
+        <h2 class="form-signin-heading">REGISTER</h2>
+        <p> if you don't have account then register here </p>
+    <form action="/register/" method = "POST">
+        {% csrf_token %}
+        
+        <input type="text" class = "form-control" name="username" placeholder="USERNAME"/><br />
+        <input type="password" class = "form-control" name="password" placeholder="password"/><br />
+        <input type="text" class = "form-control" name="email" placeholder="email"/><br />
+        <input type="text" class = "form-control" name="first_name" placeholder="first_name"/><br />
+        <input type="text" class = "form-control" name="last_name" placeholder="last_name"/><br />
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <input type="submit" value = "register"/>
+    </form>
+</div>
+</body>
+
+
+
+{% endblock %}
