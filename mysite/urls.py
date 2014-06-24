@@ -1,7 +1,6 @@
 from django.conf.urls import patterns, include, url
 from bookstore import views
 from django.contrib import admin
-#from django.contib.auth import password_change,password_reset,password_change_done,password_reset_done,password_reset_confirm,password_reset_complete
 from django.contrib import auth
 from django.conf import settings
 from django.conf.urls.static import static
