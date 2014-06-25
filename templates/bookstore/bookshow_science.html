@@ -1,0 +1,71 @@
+{% extends "pp.html" %}
+
+{% block content %}
+
+
+  
+
+
+  <div class="container-fluid">
+      <div class="jumbotron">
+          <h2> WELCOME TO BOOKSTORE </p>
+      </div>
+    </div>
+
+
+
+  <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              {% if error %}
+                <p style="color: red;">Please submit a search term.</p>
+              {% endif %}
+
+              <form class="navbar-form navbar-left" role="search" action = "/search/" method = "get">
+                <div class="form-group">
+                  <input type = "text" class="form-control" placeholder="Search" name = q>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+
+
+          <div class="row">
+  <table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Book Name</th>
+            <th>Doc File</th>
+            <th>Author</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for book in c %}
+        <tr>
+          <td>{{ book.name }}</td>
+          <td><a href="/media/{{book.docfile}}/"> {{book.name}} file</a></td>
+          <td>{{book.author}}</td>
+        </tr>
+      {% endfor %}
+        
+    </tbody>
+  </table>
+          </div>
+ 
+  </div>
+  
+  
+    
+       
+
+      
+
+      
+   
+        
+    
+
+    
+  </body>
+{% endblock %}

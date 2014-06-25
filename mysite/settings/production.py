@@ -24,5 +24,5 @@ ALLOWED_HOSTS = ['*']
 STATIC_ROOT = normpath(join(SITE_ROOT, 'staticfiles'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(SITE_ROOT, 'bookstore/static'),
+    os.path.join(SITE_ROOT, 'static'),
 )

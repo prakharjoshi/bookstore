@@ -55,7 +55,7 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_DIRS=(
-   os.path.join(BASE_DIR,'templates'),
+   os.path.join(SITE_ROOT,'templates'),
 )
 
 DATABASES = {
@@ -120,13 +120,13 @@ STATICFILES_FINDERS=(
 )
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = normpath(join(SITE_ROOT, 'static'))
+STATIC_ROOT = normpath(join(SITE_ROOT, 'staticfiles'))
 STATIC_URL = '/static/'
 
 PROJECT_DIR = os.path.dirname(__file__)
 
 STATICFILES_DIRS = (
-    os.path.join(SITE_ROOT, 'bookstore/static'),
+    os.path.join(SITE_ROOT, 'static'),
 )
 
 
